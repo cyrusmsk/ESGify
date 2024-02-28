@@ -82,6 +82,7 @@ results = model(**to_model)
 To identify top-3 classes by relevance and their scores: 
 
 ```python
+import numpy as np
 for i in torch.topk(results, k=3).indices.tolist()[0]:
     print(f"{model.id2label[i]}: {np.round(results.flatten()[i].item(), 3)}")
 ```
